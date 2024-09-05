@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalendarForTeacherPrikhodkoAP42IS"
         mc:Ignorable="d"
+        xmlns:vm="clr-namespace:CalendarForTeacherPrikhodkoAP42IS.ViewModels"
+        d:DataContext="{d:DesignInstance Type=vm:CalendarViewModel}"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
+        <TextBlock Text="Календарь до лета" FontSize="24" FontWeight="Bold" Margin="10" HorizontalAlignment="Center" Grid.Row="0"/>
+
+        <Calendar SelectedDate="{Binding SelectedDate}" Grid.Row="1" Margin="10,10,10,52" />
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="0,190,0,0" Grid.RowSpan="2">
+            <TextBlock Text="{Binding DaysUntilSummer, StringFormat='Сколько рабочих дней до лета: {0}'}" 
+               FontSize="16" Margin="10" HorizontalAlignment="Center" />
+            <TextBlock Text="{Binding HoursUntilSummer, StringFormat='Сколько часов: {0}'}" 
+               FontSize="16" Margin="10" HorizontalAlignment="Center" />
+            <TextBlock Text="{Binding MinutesUntilSummer, StringFormat='Сколько минут: {0}'}" 
+               FontSize="16" Margin="10" HorizontalAlignment="Center" />
+            <TextBlock Text="{Binding SecondsUntilSummer, StringFormat='Сколько секунд: {0}'}" 
+               FontSize="16" Margin="10" HorizontalAlignment="Center" />
+        </StackPanel>
     </Grid>
 </Window>
